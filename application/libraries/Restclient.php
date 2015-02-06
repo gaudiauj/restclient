@@ -292,7 +292,10 @@ class Restclient {
         
         // Si il y a des headers
         if (!empty($this->config['header']) && is_array($this->config['header'])) {
-            $this->output_header = array_merge($this->output_header, $this->config['header']);
+            // Ajoute les en-têtes 
+            foreach ($this->config['header'] as $key => $value) {
+                $this->output_header[] = "$key: $value";
+            }
         }
         
         // Référence du data
