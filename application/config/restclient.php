@@ -3,15 +3,13 @@
 /** Librairie REST Full Client 
  * @author Yoann VANITOU
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 1.0.5 (20141118)
+ * @version 2.0.0 (20150206)
  */
 $config['restclient'] = array(
     'auth' => FALSE,
     'auth_username' => '',
     'auth_password' => '',
-    'api' => FALSE,
-    'api_name' => '',
-    'api_key' => '',
+    'header' => FALSE,
     'cookie' => FALSE,
     'timeout' => 30,
     'result_assoc' => TRUE,

@@ -3,7 +3,7 @@
 /** Librairie REST Full Client 
  * @author Yoann VANITOU
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 1.0.5 (20141118)
+ * @version 2.0.0 (20150206)
  */
 class Restclient {
     
@@ -21,9 +21,7 @@ class Restclient {
         'auth' => FALSE,
         'auth_username' => '',
         'auth_password' => '',
-        'api' => FALSE,
-        'api_name' => 'key',
-        'api_key' => '',
+        'header' => FALSE,
         'cookie' => FALSE,
         'timeout' => 30,
         'result_assoc' => TRUE,
@@ -292,10 +290,11 @@ class Restclient {
             curl_setopt($curl, CURLOPT_USERPWD, "{$this->config['auth_username']}:{$this->config['auth_password']}");
         }
         
-        // Si il y a une clé
-        if ($this->config['api'])
-            $this->output_header[] = "{$this->config['api_name']}: {$this->config['api_key']}";
-
+        // Si il y a des headers
+        if (!empty($this->config['header']) && is_array($this->config['header'])) {
+            $this->output_header = array_merge($this->output_header, $this->config['header']);
+        }
+        
         // Référence du data
         $this->output_value =& $data;
         
