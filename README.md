@@ -1,6 +1,7 @@
 # restclient
 
-# /application/config/restclient.php
+# Config (/application/config/restclient.php)
+
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 $config['restclient'] = array(
@@ -15,7 +16,7 @@ $config['restclient'] = array(
     'tts' => 3600
 );
 
-# /application/controllers/exemple.php
+# Exemple (/application/controllers/exemple.php)
 <?php
 
 if (!defined('BASEPATH'))
