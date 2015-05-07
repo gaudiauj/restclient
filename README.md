@@ -21,6 +21,7 @@ $config['restclient'] = array(
 /application/controllers/exemple.php:
 ```php
 $this->load->library('restclient');
+$this->load->helper('url');
 
 $values = $this->restclient->get(site_url('welcome/index'), array(
     'id' => 2
