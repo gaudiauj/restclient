@@ -3,7 +3,7 @@
 /** Librairie REST Full Client 
  * @author Yoann VANITOU
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
- * @version 2.0.0 (20150206)
+ * @version 2.0.2 (20150507)
  */
 class Restclient {
     
