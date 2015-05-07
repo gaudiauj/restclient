@@ -13,6 +13,7 @@ $config['restclient'] = array(
     'tts' => 3600
 );
 
+
 # /application/controllers/exemple.php
 class Exemple extends CI_Controller {
 
