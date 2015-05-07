@@ -1,6 +1,5 @@
 {
     "name": "maltyxx/restclient",
-    "type": "library",
     "keywords": ["codeigniter", "rest","client"],
     "description": "Librairie REST Client pour CodeIgniter",
     "homepage": "https://github.com/maltyxx/restclient",
