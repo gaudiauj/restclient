@@ -3,11 +3,6 @@
 # /application/config/restclient.php
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-/** Librairie REST Full Client 
- * @author Yoann VANITOU
- * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
- * @version 2.0.0 (20150206)
- */
 $config['restclient'] = array(
     'auth' => FALSE,
     'auth_username' => '',
@@ -20,22 +15,12 @@ $config['restclient'] = array(
     'tts' => 3600
 );
 
-/* End of file restclient.php */
-/* Location: ./application/config/restclient.php */
-
-
-
 # /application/controllers/exemple.php
 <?php
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/** Librairie REST Full Client 
- * @author Yoann VANITOU
- * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
- * @version 2.0.0 (20150206)
- */
 class Exemple extends CI_Controller {
 
     public function __construct() {
@@ -55,7 +40,4 @@ class Exemple extends CI_Controller {
     }
 
 }
-
-/* End of file exemple.php */
-/* Location: ./application/controllers/exemple.php */
 
