@@ -1,0 +1,19 @@
+{
+    "name": "maltyxx/restclient",
+    "type": "library",
+    "keywords": ["codeigniter", "rest","client"],
+    "description": "Librairie REST Client pour CodeIgniter",
+    "homepage": "https://github.com/maltyxx/restclient",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Yoann Vanitou",
+            "email": "yvanitou@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "codeigniter/framework": ">=2.2.0"
+    }
+}

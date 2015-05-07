@@ -2,7 +2,7 @@
 
 /** Librairie REST Full Client 
  * @author Yoann VANITOU
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @version 2.0.0 (20150206)
  */
 class Exemple extends CI_Controller {
