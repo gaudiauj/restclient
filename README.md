@@ -1,9 +1,9 @@
 # restclient
+REST Full Client for Codeigniter
 
-# Config (/application/config/restclient.php)
-
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
+## Config
+/application/config/restclient.php:
+```php
 $config['restclient'] = array(
     'auth' => FALSE,
     'auth_username' => '',
@@ -15,30 +15,18 @@ $config['restclient'] = array(
     'cache' => FALSE,
     'tts' => 3600
 );
+```
 
-# Exemple (/application/controllers/exemple.php)
-<?php
+## Examples
+/application/controllers/exemple.php:
+```php
+$this->load->library('restclient');
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+$values = $this->restclient->get(site_url('welcome/index'), array(
+    'id' => 2
+));
 
-class Exemple extends CI_Controller {
+$this->restclient->debug();
 
-    public function __construct() {
-        parent::__construct();
-    }
-
-    public function index() {
-        $this->load->library('restclient');
-
-        $values = $this->restclient->get(site_url('exemple'), array(
-            'id' => 2
-        ));
-
-        $this->restclient->debug();
-
-        var_dump($values);
-    }
-
-}
-
+var_dump($values);
+```
