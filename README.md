@@ -20,7 +20,7 @@ $config['restclient'] = array(
 ## Examples
 /application/controllers/exemple.php:
 ```php
-$this->load->library('restclient');
+$this->load->library('Restclient/restclient');
 $this->load->helper('url');
 
 $values = $this->restclient->get(site_url('welcome/index'), array(
