@@ -1,7 +1,22 @@
 # restclient
-REST Full Client for Codeigniter
+REST Full Client for Codeigniter 2 and Codeigniter 3
 
-## Config
+## Installation
+### Step 1 Installation by Composer
+```txt
+# composer install maltyxx/restclient
+```
+
+### Step 2 Creates files
+```txt
+/application/libraries/Restclient.php
+```
+```php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+require(APPPATH.'/libraries/Restclient/Restclient.php');
+```
+
+### Step 3 Configuration
 /application/config/restclient.php:
 ```php
 $config['restclient'] = array(

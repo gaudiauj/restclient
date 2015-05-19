@@ -3,7 +3,6 @@
 /** Librairie REST Full Client 
  * @author Yoann VANITOU
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
- * @version 2.0.2 (20150507)
  */
 class Restclient {
     
@@ -278,12 +277,13 @@ class Restclient {
         curl_setopt($curl, CURLOPT_FAILONERROR, FALSE);
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, FALSE);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, strtoupper($method));
+        
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_HEADER, FALSE);
         curl_setopt($curl, CURLOPT_HEADERFUNCTION, array($this, '_headers'));
         curl_setopt($curl, CURLOPT_COOKIESESSION, TRUE);
         curl_setopt($curl, CURLINFO_HEADER_OUT, TRUE);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
                 
         // Si il y a une authentification
         if ($this->config['auth']) {
