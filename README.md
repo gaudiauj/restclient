@@ -19,6 +19,8 @@ require(APPPATH.'/libraries/Restclient/Restclient.php');
 ### Step 3 Configuration
 /application/config/restclient.php:
 ```php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
 $config['restclient'] = array(
     'auth' => FALSE,
     'auth_username' => '',
@@ -35,14 +37,26 @@ $config['restclient'] = array(
 ## Examples
 /application/controllers/exemple.php:
 ```php
-$this->load->library('restclient');
-$this->load->helper('url');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-$values = $this->restclient->get(site_url('welcome/index'), array(
-    'id' => 2
-));
+class Exemple extends CI_Controller {
 
-$this->restclient->debug();
+    public function __construct() {
+        parent::__construct();
+    }
+    
+    public function index() {
+        $this->load->library('restclient');
+        $this->load->helper('url');
 
-var_dump($values);
+        $values = $this->restclient->get(site_url('welcome/index'), array(
+            'id' => 2
+        ));
+
+        $this->restclient->debug();
+
+        var_dump($values);
+    }
+
+}
 ```
