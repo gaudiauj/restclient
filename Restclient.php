@@ -277,7 +277,6 @@ class Restclient {
         curl_setopt($curl, CURLOPT_FAILONERROR, FALSE);
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, FALSE);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, strtoupper($method));
-        
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_HEADER, FALSE);
