@@ -35,11 +35,11 @@ $config['restclient'] = array(
 ```
 
 ## Examples
-/application/controllers/exemple.php:
+/application/controllers/Client.php:
 ```php
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Exemple extends CI_Controller {
+class Client extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -49,7 +49,7 @@ class Exemple extends CI_Controller {
         $this->load->library('restclient');
         $this->load->helper('url');
 
-        $values = $this->restclient->get(site_url('welcome/index'), array(
+        $values = $this->restclient->get(site_url('server'), array(
             'id' => 2
         ));
 
