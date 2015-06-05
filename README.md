@@ -49,7 +49,7 @@ class Client extends CI_Controller {
         $this->load->library('restclient');
         $this->load->helper('url');
 
-        $values = $this->restclient->get(site_url('server'), array(
+        $values = $this->restclient->post(site_url('server'), array(
             'id' => 2
         ));
 
