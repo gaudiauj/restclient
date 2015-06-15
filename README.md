@@ -3,8 +3,17 @@ REST Full Client for Codeigniter 2 and Codeigniter 3
 
 ## Installation
 ### Step 1 Installation by Composer
-```txt
-# composer install maltyxx/restclient
+#### Edit /composer.json
+```json
+{
+    "require": {
+        "maltyxx/restclient": "2.1.*"
+    }
+}
+```
+#### Run composer update
+```shell
+composer update
 ```
 
 ### Step 2 Creates files
@@ -12,14 +21,16 @@ REST Full Client for Codeigniter 2 and Codeigniter 3
 /application/libraries/Restclient.php
 ```
 ```php
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 require(APPPATH.'/libraries/Restclient/Restclient.php');
 ```
 
 ### Step 3 Configuration
 /application/config/restclient.php:
 ```php
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['restclient'] = array(
     'auth' => FALSE,
@@ -37,7 +48,8 @@ $config['restclient'] = array(
 ## Examples
 /application/controllers/Client.php:
 ```php
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Client extends CI_Controller {
 
