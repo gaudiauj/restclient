@@ -18,7 +18,7 @@ class Restclient {
      * @var array 
      */
     private $config = array(
-        'port' => 80,
+        'port' => NULL,
         'auth' => FALSE,
         'auth_type' => 'basic',
         'auth_username' => '',
@@ -275,7 +275,12 @@ class Restclient {
                 
         // Configuration de l'URL et d'autres options
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_PORT, $this->config['port']);
+        
+        // Si le port est spécifié
+        if (!empty($this->config['port'])) {
+            curl_setopt($curl, CURLOPT_PORT, $this->config['port']);
+        }
+        
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($curl, CURLOPT_TIMEOUT, $this->config['timeout']);
         curl_setopt($curl, CURLOPT_FAILONERROR, FALSE);
