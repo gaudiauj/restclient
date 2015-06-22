@@ -18,7 +18,9 @@ class Restclient {
      * @var array 
      */
     private $config = array(
+        'port' => 80,
         'auth' => FALSE,
+        'auth_type' => 'basic',
         'auth_username' => '',
         'auth_password' => '',
         'header' => FALSE,
@@ -273,6 +275,7 @@ class Restclient {
                 
         // Configuration de l'URL et d'autres options
         curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_PORT, $this->config['port']);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($curl, CURLOPT_TIMEOUT, $this->config['timeout']);
         curl_setopt($curl, CURLOPT_FAILONERROR, FALSE);
@@ -284,11 +287,15 @@ class Restclient {
         curl_setopt($curl, CURLOPT_HEADERFUNCTION, array($this, '_headers'));
         curl_setopt($curl, CURLOPT_COOKIESESSION, TRUE);
         curl_setopt($curl, CURLINFO_HEADER_OUT, TRUE);
-                
+        
         // Si il y a une authentification
         if ($this->config['auth']) {
-            curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-            curl_setopt($curl, CURLOPT_USERPWD, "{$this->config['auth_username']}:{$this->config['auth_password']}");
+            switch ($this->config['auth_type']) {
+                // Authentification http basic
+                case 'basic':
+                    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+                    curl_setopt($curl, CURLOPT_USERPWD, "{$this->config['auth_username']}:{$this->config['auth_password']}");
+            }
         }
         
         // Si il y a des headers
@@ -311,10 +318,12 @@ class Restclient {
                     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                 break;
             case 'put':
+                curl_setopt($curl, CURLOPT_PUT, TRUE);
+                
                 if ( ! empty($data))
                     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
                 break;
-            case 'delete':
+            case 'delete':                
                 if ( ! empty($data))
                     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
                 break;

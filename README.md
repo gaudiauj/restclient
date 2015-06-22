@@ -33,7 +33,9 @@ require(APPPATH.'/libraries/Restclient/Restclient.php');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['restclient'] = array(
+    'port' => 80,
     'auth' => FALSE,
+    'auth_type' => 'basic',
     'auth_username' => '',
     'auth_password' => '',
     'header' => FALSE,
