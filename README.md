@@ -7,7 +7,7 @@ REST Full Client for Codeigniter 2 and Codeigniter 3
 ```json
 {
     "require": {
-        "maltyxx/restclient": "2.1.*"
+        "maltyxx/restclient": "^2.1.0"
     }
 }
 ```
@@ -16,17 +16,7 @@ REST Full Client for Codeigniter 2 and Codeigniter 3
 composer update
 ```
 
-### Step 2 Creates files
-```txt
-/application/libraries/Restclient.php
-```
-```php
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-require(APPPATH.'/libraries/Restclient/Restclient.php');
-```
-
-### Step 3 Configuration
+### Step 2 Configuration (Optional)
 /application/config/restclient.php:
 ```php
 <?php
@@ -62,13 +52,13 @@ class Client extends CI_Controller {
         $this->load->library('restclient');
         $this->load->helper('url');
 
-        $values = $this->restclient->post(site_url('server'), array(
-            'id' => 2
-        ));
+        $url = site_url('server');
+        $data = array('id' => 2);
+        $options = array();
+        
+        $values = $this->restclient->post($url, $data, $options);
 
         $this->restclient->debug();
-
-        var_dump($values);
     }
 
 }
