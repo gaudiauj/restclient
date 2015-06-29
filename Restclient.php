@@ -306,7 +306,7 @@ class Restclient {
         
         // Si il y a des headers
         if (!empty($this->config['header']) && is_array($this->config['header'])) {
-            // Ajoute les en-têtes 
+            // Ajoute les en-têtes
             foreach ($this->config['header'] as $key => $value) {
                 $this->output_header[] = "$key: $value";
             }
@@ -323,9 +323,7 @@ class Restclient {
                 if ( ! empty($data))
                     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                 break;
-            case 'put':
-                curl_setopt($curl, CURLOPT_PUT, TRUE);
-                
+            case 'put':                
                 if ( ! empty($data))
                     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
                 break;
