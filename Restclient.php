@@ -92,8 +92,9 @@ class Restclient {
      * @param array $config
      */
     public function initialize(array $config = array()) {
-        if (empty($config))
+        if (empty($config)) {
             return;
+        }
                 
         $this->config = array_merge($this->config, (isset($config['restclient'])) ? $config['restclient'] : $config);
     }
@@ -246,12 +247,12 @@ class Restclient {
             $api = 'rest'.str_replace('/', '_', $url_indo['path']);
             
             // Définition de la clé
-            $key = (isset($url_indo['query'])) ? "{$api}_".md5($url_indo['query']) : "{$api}";
+            $cache_key = (isset($url_indo['query'])) ? "{$api}_".md5($url_indo['query']) : "{$api}";
             
             // Si la méthode est de type GET
             if ($method == 'get') {
                 // Si il existe une clé
-                if ($json = $this->CI->cache->get($key))
+                if ($json = $this->CI->cache->get($cache_key))
                     return $json;
             
             // Si la méthode n'est pas de type GET
@@ -374,19 +375,19 @@ class Restclient {
         // Si le cahche est activé et que la méthode est de type GET 
         if ($this->config['cache'] && $method == 'get') {
              // Si la clé existe dans le noeud
-            if ( ! $keys = $this->CI->cache->get($api) OR ! isset($keys[$key])) {
+            if ( ! $keys = $this->CI->cache->get($api) OR ! isset($keys[$cache_key])) {
                 // Récupère les clés existantes
                 $keys = (is_array($keys)) ? $keys : array();
 
                 // Enregistre la clé
-                $keys[$key] = $key;
+                $keys[$cache_key] = $cache_key;
 
                 // Sauvegarde les clés
                 $this->CI->cache->save($api, $keys, $this->config['tts']);
             }
             
             // Sauvegarde les données
-            $this->CI->cache->save($key, $json, $this->config['tts']);
+            $this->CI->cache->save($cache_key, $json, $this->config['tts']);
         }
         
         // Retourne les résultats
