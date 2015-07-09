@@ -27,6 +27,7 @@ class Client extends CI_Controller
     
     public function index()
     {
+        $this->load->add_package_path(APPPATH.'third_party/restclient');
         $this->load->library('restclient');
         $this->load->helper('url');
         
