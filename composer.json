@@ -4,7 +4,7 @@
     "description": "REST Full Client for Codeigniter 2 and Codeigniter 3",
     "homepage": "https://github.com/maltyxx/restclient",
     "license": "Apache-2.0",
-    "type": "codeigniter-library",
+    "type": "codeigniter-third-party",
     "authors": [
         {
             "name": "Yoann Vanitou",
@@ -17,6 +17,6 @@
         "composer/installers": "1.0.*"
     },
     "extra": {
-        "installer-name": "Restclient"
+        "installer-name": "restclient"
     }
 }
