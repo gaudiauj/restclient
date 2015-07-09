@@ -24,13 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Client extends CI_Controller
 {
-    
+
     public function index()
     {
         $this->load->add_package_path(APPPATH.'third_party/restclient');
         $this->load->library('restclient');
         $this->load->helper('url');
-        
+
         $values = $this->restclient->post(site_url('server'), array('id' => 2));
     }
 
