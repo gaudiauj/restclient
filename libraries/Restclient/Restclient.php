@@ -92,10 +92,11 @@ class Restclient {
      * @param array $config
      */
     public function initialize(array $config = array()) {
+        // Si il y a pas de fichier de configuration
         if (empty($config)) {
             return;
         }
-                
+        
         $this->config = array_merge($this->config, (isset($config['restclient'])) ? $config['restclient'] : $config);
     }
     

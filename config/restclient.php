@@ -18,3 +18,6 @@ $config['restclient'] = array(
     'cache' => FALSE,
     'tts' => 3600
 );
+
+/* End of file restclient.php */
+/* Location: ./config/restclient.php */
