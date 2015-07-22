@@ -30,7 +30,11 @@ class Client extends CI_Controller
 
         $this->load->helper('url');
 
-        $values = $this->restclient->post(site_url('server'), ['id' => 2]);
+        $json = $this->restclient->post(site_url('server'), [
+            'lastname' => 'test'
+        ]);
+
+        $this->restclient->debug();
     }
 }
 ```
