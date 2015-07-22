@@ -1,7 +1,7 @@
 {
     "name": "maltyxx/restclient",
     "keywords": ["codeigniter", "rest", "client"],
-    "description": "REST Full Client for Codeigniter 2 and Codeigniter 3",
+    "description": "REST Full Client for Codeigniter 3",
     "homepage": "https://github.com/maltyxx/restclient",
     "license": "Apache-2.0",
     "type": "codeigniter-third-party",
